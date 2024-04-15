@@ -66,3 +66,39 @@ const statusCodes = [
     { code: 527 , message: "Railgun Listener To Origin"},
     //Adicione mais código de status conforme necessário
 ];
+
+const generateRandomIndex = () => {
+    return Math.floor(Math.random() * statusCodes.length);
+};
+
+const randomicoIndex = generateRandomIndex();
+
+statusCodes.forEach((status, index) => {
+    if (index === randomicoIndex) {
+        switch (true) {
+            case (status.code >= 100 && status.code < 200):
+              console.log ("Status sorteado:",chalk.bgGray.bold(`${status.code}`));
+              console.log (chalk.gray.bold(`Status ${status.code}: ${status.message}`));
+              break;
+            case (status.code >= 200 && status.code < 300):
+                console.log ("Status sorteado:",chalk.bgGreen.bold(`${status.code}`));
+                console.log (chalk.green.bold(`Status ${status.code}: ${status.message}`));
+              break;
+            case (status.code >= 300 && status.code < 400):
+                console.log ("Status sorteado:",chalk.bgYellow.bold(`${status.code}`));
+                console.log (chalk.yellow.bold(`Status ${status.code}: ${status.message}`));
+              break;
+            case (status.code >= 400 && status.code < 500):
+                console.log ("Status sorteado:",chalk.bgRed.bold(`${status.code}`));
+                console.log (chalk.red.bold(`Status ${status.code}: ${status.message}`));             
+                 break;
+            case (status.code >= 500 && status.code < 600):
+                console.log ("Status sorteado:",chalk.bgBlue.bold(`${status.code}`));
+                console.log (chalk.blue.bold(`Status ${status.code}: ${status.message}`));             
+                 break;
+          }
+          
+    }
+
+  });
+  
